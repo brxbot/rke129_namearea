@@ -1,0 +1,130 @@
+:root {
+    --my-Padding: 0.4rem;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container {
+    color: whitesmoke;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr fr;
+    grid-template-rows: 1fr 1fr 1fr 0.5fr;
+    grid-template-areas: 
+    "nav nav nav nav"
+    "content1 content2 content3 sidebar"
+    "main main main sidebar"
+    "footer footer footer sidebar"
+    ;
+    height: 100vh;
+    text-align: center;
+    text-transform: uppercase;
+
+}
+nav {
+    background-color: cadetblue;
+    grid-area: nav;
+    padding: var(--my-Padding);
+
+}
+
+.nav-container{
+    align-items: center;
+    display: grid;
+    height: 100%;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;
+}
+
+.content1 {
+    background-color: tomato;
+    grid-area: content1;
+    padding: var(--my-Padding);
+
+}
+
+.content2 {
+    background-color: violet;
+    grid-area: content2;
+    padding: var(--my-Padding);
+}
+
+.content3 {
+    background-color: blueviolet;
+    grid-area: content3;
+    padding: var(--my-Padding);
+}
+
+.sidebar {
+    background-color: yellowgreen;
+    grid-area: sidebar;
+    padding: var(--my-Padding);
+}
+
+main   {
+    background-color: goldenrod;
+    grid-area: main;
+    padding: var(--my-Padding);
+}
+footer {
+    background-color: rgb(78, 78, 23);
+    grid-area: footer;
+    padding: var(--my-Padding);
+}
+
+
+
+@media (max-width: 1024px) {
+    .nav-container {
+        grid-template-columns:1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
+    .container {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-areas:
+        "nav nav"
+        "main main"
+        "content3 content2"
+        "content1 content1"
+        "footer footer"
+
+        ;
+    }
+    .sidebar {
+        display: none;
+
+    }
+}
+
+
+@media (max-width: 480px) {
+    .nav-container {
+        grid-template-columns:1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+    }
+    .sidebar{
+        display: block;
+    }
+    .content3 {
+        display: none;
+    }
+
+    .container {
+        gap: 0;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(6, 1fr);
+        grid-template-areas: 
+        "nav"
+        "main"
+        "content1"
+        "content2"
+        "sidebar"
+        "footer"
+        ;
+    }
+}
+
